@@ -24,16 +24,32 @@ Three files will be created in `outputs/` with the output of the three example f
 
 
 ### Using the project
+---------------------
+#### Running examples from the terminal
+
 Running the examples from the terminal requires the `-m` argument to ensure correct localized imports
 - `python -m examples.example1`
 
+#### Utilizing the api from the terminal
+- It is possible to use main.py to query the api and save the results in a specified location all from the terminal. These are the args allowed:
+    - `--result_count` (int) default: 100
+    - `--multi` (bool) default: True
+    - `--seed` (str) default: 'pura'
+    - `--output_filepath` default: None
+    - `--results_per_page`default: 100
 
+- Examples of utlizing the api from the terminal
+    - `python main.py --output_filepath='./outputs/custom_output.json'`
+    - `python main.py --result_count=5000 --output_filepath='./outputs/custom_output.json'`
+    - `python main.py --result_count=5000 --seed='example' --multi=False  --output_filepath='./outputs/custom_output.json'`
+
+#### Using the api as an import
 Simple usage to pull 100 records as seen in example1
 ```
 from randomuser_api.RandomUserAPI import RandomUserAPI
 
 rapi = RandomUserAPI()
-rapi.output_filepath = 'outputs/example1.json'
+rapi.output_filepath = './outputs/example1.json'
 rapi.fetch_all_data(100)
 ```
 
@@ -45,7 +61,7 @@ rapi = RandomUserAPI(
                     result_count=100,
                     seed='pura',
                     multi=False,
-                    output_filepath='outputs/example2.json'
+                    output_filepath='./outputs/example2.json'
                 )
 
 rapi.fetch_all_data()
@@ -60,15 +76,11 @@ rapi = RandomUserAPI()
 rapi.result_count = 10000
 rapi.seed = 'pura'
 rapi.multi = True
-rapi.output_filepath = 'outputs/example3.json'
+rapi.output_filepath = './outputs/example3.json'
 rapi.results_per_page = 1000
 
 rapi.fetch_all_data()
 ```
-
-Examples of utlizing the api from the terminal
-- `python main.py --result_count=5000 --seed='example' --multi=True  --output_filepath='./outputs/custom_output.json'`
-- `python main.py --result_count=5000 --output_filepath='./outputs/custom_output.json'`
 
 
 ### Limitations and known issues
