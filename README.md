@@ -17,13 +17,13 @@ Can be used either with docker or as a standalone project.
 
 Expected output:
 Three files will be created in `outputs/` with the output of the three example files in `examples/`
-example1.json
-example2.json
-example3.json
+- example1.json
+- example2.json
+- example3.json
 
 
 
-#### Using the project
+### Using the project
 Running the examples from the terminal requires the `-m` argument to ensure correct imports
 `python -m examples.example1`
 
@@ -67,8 +67,8 @@ rapi.fetch_all_data()
 ```
 
 Examples of utlizing the api from the terminal
-`python main.py --result_count=5000 --seed='example' --multi=True  --output_filepath='outputs/custom_output.json'`
-`python main.py --result_count=5000 --output_filepath='outputs/custom_output.json'`
+- `python main.py --result_count=5000 --seed='example' --multi=True  --output_filepath='outputs/custom_output.json'`
+- `python main.py --result_count=5000 --output_filepath='outputs/custom_output.json'`
 
 
 ### Limitations and known issues
