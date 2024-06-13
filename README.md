@@ -1,6 +1,3 @@
-Here is the updated README in markdown format:
-
-```markdown
 # RandomUserAPI
 
 This project aims to provide a solution for retrieving data from the [RandomUser API](https://randomuser.me).
