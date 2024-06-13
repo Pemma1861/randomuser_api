@@ -114,6 +114,7 @@ class RandomUserAPI:
         page_numbers = list(range(1, page_count + 1))
         processes = min(page_count, 10)  # Restrict process count to page numbers if less than 10
 
+        # Retrieve api respone. If Multiprocessing is requesting, spin up processes.
         if self.multi:
             with futures.ThreadPoolExecutor(processes) as executor:
                 results = executor.map(self.fetch_and_process_page, page_numbers)
@@ -148,7 +149,8 @@ class RandomUserAPI:
         result = self.fetch_data(page)
         return [process_user(user) for user in result['results']]
 
-
+    # Properties and setters included for each to ensure typecheck validation
+    # if changed by the user.
     @property
     def result_count(self):
         return self._result_count
