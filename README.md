@@ -38,11 +38,12 @@ You can use `main.py` to query the API and save the results in a specified locat
 - `--result_count` (int) default: 100
 - `--multi` (bool) default: True
 - `--seed` (str) default: 'pura'
-- `--output_filepath` (str) default: None
+- `--output_filepath` (str) default: './outputs/main_output.json'
 - `--results_per_page` (int) default: 100
 
 **Examples:**
 ```sh
+python main.py
 python main.py --output_filepath='./outputs/custom_output.json'
 python main.py --result_count=5000 --output_filepath='./outputs/custom_output.json'
 python main.py --result_count=5000 --seed='example' --multi=False --output_filepath='./outputs/custom_output.json'

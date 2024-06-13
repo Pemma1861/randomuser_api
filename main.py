@@ -7,13 +7,13 @@ from randomuser_api.RandomUserAPI import RandomUserAPI
 
 
 def main():
-    parser = argparse.ArgumentParser(description="RandomUserAPI Data Fetcher")
+    parser = argparse.ArgumentParser(description='RandomUserAPI Data Fetcher')
 
-    parser.add_argument('--result_count', type=int, default=100, help="Number of results (default: 100)")
-    parser.add_argument('--multi', type=bool, default=True, help="Use multi-processing (default: True)")
-    parser.add_argument('--seed', type=str, default='pura', help="Seed for data generation (default: 'pura')")
-    parser.add_argument('--output_filepath', type=str, default=None, help="Filepath to save output (default: None)")
-    parser.add_argument('--results_per_page', type=int, default=100, help="Number of results per page (default: 100)")
+    parser.add_argument('--result_count', type=int, default=100, help='Number of results (default: 100)')
+    parser.add_argument('--multi', type=bool, default=True, help='Use multi-processing (default: True)')
+    parser.add_argument('--seed', type=str, default='pura', help='Seed for data generation (default: "pura")')
+    parser.add_argument('--output_filepath', type=str, default='./outputs/main_output.json', help='Filepath to save output (default: "./outputs/main_output.json")')
+    parser.add_argument('--results_per_page', type=int, default=100, help='Number of results per page (default: 100)')
 
     args = parser.parse_args()
 
