@@ -31,6 +31,12 @@ To run the examples from the terminal, use the `-m` argument to ensure correct l
 ```sh
 python -m examples.example1
 ```
+```sh
+python -m examples.example2
+```
+```sh
+python -m examples.example3
+```
 
 #### Utilizing the API from the Terminal
 
@@ -44,8 +50,14 @@ You can use `main.py` to query the API and save the results in a specified locat
 **Examples:**
 ```sh
 python main.py
+```
+```sh
 python main.py --output_filepath='./outputs/custom_output.json'
+```
+```sh
 python main.py --result_count=5000 --output_filepath='./outputs/custom_output.json'
+```
+```sh
 python main.py --result_count=5000 --seed='example' --multi=False --output_filepath='./outputs/custom_output.json'
 ```
 
