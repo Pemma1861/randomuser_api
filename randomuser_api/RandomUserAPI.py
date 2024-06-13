@@ -77,9 +77,9 @@ class RandomUserAPI:
             except HTTPError as e:
                 if e.code == 429:
                     retry_after = int(e.headers.get('Retry-After', 1))
-                    print(
-                        f'HTTP 429: Rate limit exceeded. Retrying after {retry_after} seconds...'
-                    )
+                    # print(
+                    #     f'HTTP 429: Rate limit exceeded. Retrying after {retry_after} seconds...'
+                    # )
                     time.sleep(retry_after)
                 else:
                     raise e
@@ -100,6 +100,8 @@ class RandomUserAPI:
         Returns:
             JSON object containing results if output_filepath is not set. Otherwise None.
         """
+
+        print('Retrieving Data...')
 
         if result_count:
             check_type('result_count', result_count, int)
