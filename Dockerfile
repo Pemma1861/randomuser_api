@@ -5,6 +5,7 @@ FROM python:${PYTHON_VERSION}-slim as base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV DOCKER_OUTPUT_PATH="/home/outputs"
 
 # Keeps Python from buffering stdout and stderr to avoid situations where
 # the application crashes without emitting any logs due to buffering.
@@ -15,14 +16,7 @@ WORKDIR /app
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
 ARG UID=10001
-# RUN adduser \
-#     --disabled-password \
-#     --gecos "" \
-#     --home "/nonexistent" \
-#     --shell "/sbin/nologin" \
-#     --no-create-home \
-#     --uid "${UID}" \
-#     appuser
+
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
@@ -37,36 +31,11 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 COPY . .
 
 
-# RUN pip install --user -U .
-
 # Expose the port that the application listens on.
 EXPOSE 8000
 
 
-# Set the environment var for the shell script
-ENV EXAMPLE_CASE=1
-
 # Run the application.
-# CMD ["/bin/bash"]
-# CMD ["python","-m","examples.example1"]
 CMD ["/bin/bash","run.sh"]
 
-
-
-# docker build -t randomuser_api .
-# docker run -it -v ./outputs:/home/outputs randomuser_api:latest
-# docker run -it -v .//outputs://home//outputs randomuser_api:latest
-
-# docker run -v ./outputs:/home/outputs:rw randomuser_api:latest
-# docker run -it -v $(pwd):/app randomuser_api:latest
-
-# python -m venv venv
-# . .\venv\Scripts\activate.bat
-
-
-# docker run -it -v "./outputs":"/home/outputs" randomuser_api:latest
-# docker run -it -v "/e/code/pura/outputs":"/home/outputs" randomuser_api:latest
-# docker run -it -v "/e/code/pura/outputs:/home/outputs" randomuser_api:latest
-
-# docker run -it -v "e/code/pura/api/outputs:/home/outputs" randomuser_api:latest
 

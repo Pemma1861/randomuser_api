@@ -13,8 +13,13 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 '''
 
 def main():
+    
+    # Change the output path depending on if the code is being ran through docker
+    outpath = os.getenv("DOCKER_OUTPUT_PATH", "./outputs") + "/example1.json"
+
     rapi = RandomUserAPI()
-    rapi.output_filepath = '/home/outputs/example1.json'
+
+    rapi.output_filepath = outpath
     rapi.fetch_all_data(100)
 
 if __name__=='__main__':
